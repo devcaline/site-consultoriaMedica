@@ -1,0 +1,488 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Storm Design System - Sofisticado, Fluido, Conectado */
+
+@layer base {
+  :root {
+    /* Light Mode - Base Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+    
+    /* Storm Primary - Deep Black */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 0 0% 15%;
+    
+    /* Secondary - Dark Gray */
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 95%;
+    
+    /* Accent - Medium Gray */
+    --accent: 0 0% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Muted Grays */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Interactive Elements */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 94%;
+    --ring: 0 0% 8%;
+    --radius: 0.75rem;
+    
+    /* Storm Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(0 0% 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(0 0% 99%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 20px -5px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 30px -8px hsl(0 0% 0% / 0.08);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Dark Mode - Background Global Preto Fosco */
+    --background: 0 0% 6%; /* #0E0F10 */
+    --foreground: 0 0% 91%; /* #E7E7E7 - Texto Principal */
+    
+    /* Cards e Superfícies - Levemente mais claras */
+    --card: 0 0% 8%; /* #15171A */
+    --card-foreground: 0 0% 91%; /* #E7E7E7 */
+    
+    --popover: 0 0% 8%; /* #15171A */
+    --popover-foreground: 0 0% 91%; /* #E7E7E7 */
+    
+    /* Primary - Ajustado para dark mode */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 6%;
+    --primary-glow: 0 0% 85%;
+    
+    /* Secondary */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 91%;
+    
+    /* Accent */
+    --accent: 0 0% 25%;
+    --accent-foreground: 0 0% 91%;
+    
+    /* Muted - Texto Secundário */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 72%; /* #B6B6B6 - Texto Secundário */
+    
+    /* Interactive Elements */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%; /* #24272B - Bordas */
+    --input: 0 0% 10%;
+    --ring: 0 0% 50%;
+    
+    /* Shadows ajustadas para dark mode */
+    --shadow-soft: 0 2px 20px -5px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 30px -8px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px hsl(0 0% 50% / 0.2);
+  }
+  
+  /* Tokens adicionais para dark mode */
+  :root {
+    --text-primary: 0 0% 5%;
+    --text-secondary: 0 0% 45%;
+    --surface: 0 0% 100%;
+    --surface-hover: 0 0% 96%;
+    --divider: 0 0% 90%;
+  }
+  
+  .dark {
+    --text-primary: 0 0% 91%; /* #E7E7E7 */
+    --text-secondary: 0 0% 72%; /* #B6B6B6 */
+    --surface: 0 0% 8%; /* #15171A */
+    --surface-hover: 0 0% 12%;
+    --divider: 0 0% 15%; /* #24272B */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Dark mode - Ajustes globais */
+  .dark body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  /* Links */
+  a {
+    @apply text-primary hover:underline;
+    transition: color 0.2s ease;
+  }
+  
+  .dark a {
+    color: hsl(var(--primary));
+  }
+  
+  .dark a:hover {
+    color: hsl(var(--primary-glow));
+    text-decoration: underline;
+  }
+  
+  /* Inputs e placeholders */
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-muted-foreground;
+  }
+  
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  /* Focus visible - Acessibilidade */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  .dark *:focus-visible {
+    outline-color: hsl(var(--ring));
+  }
+  
+  /* Botões - Estados completos */
+  button {
+    transition: all 0.2s ease;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Cards - Dark mode */
+  .dark .service-card {
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
+  
+  .dark .service-card:hover {
+    background: hsl(var(--surface-hover));
+    border-color: hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Inputs - Dark mode */
+  input,
+  textarea,
+  select {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .dark input,
+  .dark textarea,
+  .dark select {
+    background-color: hsl(var(--input));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+  
+  .dark input:focus,
+  .dark textarea:focus,
+  .dark select:focus {
+    border-color: hsl(var(--ring));
+    background-color: hsl(var(--input));
+  }
+  
+  /* Listas - Dark mode */
+  ul, ol {
+    color: hsl(var(--foreground));
+  }
+  
+  .dark ul,
+  .dark ol {
+    color: hsl(var(--foreground));
+  }
+  
+  .dark li {
+    color: hsl(var(--text-primary));
+  }
+  
+  /* Divisórias e bordas */
+  hr {
+    border-color: hsl(var(--border));
+  }
+  
+  .dark hr {
+    border-color: hsl(var(--divider));
+  }
+  
+  /* Sombras ajustadas para dark mode */
+  .dark {
+    --shadow-soft: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+    --shadow-card: 0 4px 30px -8px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer components {
+  /* Storm Hero Section */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .hero-title {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Storm Cards */
+  .service-card {
+    @apply relative p-8 rounded-2xl border border-border/50 backdrop-blur-sm;
+    background: var(--gradient-card);
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+  
+  /* Storm Buttons */
+  .btn-primary {
+    @apply relative px-8 py-4 font-semibold rounded-full;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-bounce);
+    color: hsl(var(--primary-foreground));
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .btn-secondary {
+    @apply relative px-6 py-3 font-medium rounded-full border-2 border-primary text-primary;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-primary text-primary-foreground;
+    transform: translateY(-1px);
+  }
+  
+  /* Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+  
+  .fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Mobile-First Responsive Design */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* Touch-friendly interactions */
+  @media (hover: none) and (pointer: coarse) {
+    button, a, [role="button"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent zoom on input focus (iOS) */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Safe area insets for mobile devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-area-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hero Section - Centralização para Mobile e Tablet (até 1023px) */
+.hero-conteudo-centralizado {
+  text-align: center;
+}
+
+.hero-titulo {
+  text-align: center !important;
+  width: 100%;
+  display: block;
+}
+
+.hero-paragrafo {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-flex-center {
+  justify-content: center;
+}
+
+/* Desktop (1024px e acima) - Alinhado à esquerda */
+@media (min-width: 1024px) {
+  .hero-conteudo-centralizado {
+    text-align: left;
+  }
+  
+  .hero-titulo {
+    text-align: left !important;
+  }
+  
+  .hero-paragrafo {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .hero-flex-center {
+    justify-content: flex-start;
+  }
+}
+
+/* Ajuste de imagem quando perder proporção quadrada */
+/* CORTAR APENAS 5% DA PARTE SUPERIOR - FORÇAR COM !important E ESPECIFICIDADE */
+.image-crop-non-square {
+  background-position: center 5% !important;
+  background-size: cover !important;
+  object-fit: cover;
+}
+
+/* Garantir que no tablet corte apenas 5% da parte superior - SOBRESCREVER bg-center */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .image-crop-non-square {
+    background-position: center 5% !important;
+    background-size: cover !important;
+  }
+  
+  /* Forçar sobrescrever qualquer bg-center do Tailwind */
+  .bg-center.image-crop-non-square {
+    background-position: center 5% !important;
+  }
+}

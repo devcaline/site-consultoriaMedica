@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Aplicar tema escuro antes de qualquer renderização -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      if (!stored) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else if (stored === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>Storm Consultoria | Transforme sua Clínica em Negócio de Alta Performance</title>
+  <meta name="title" content="Storm Consultoria | Transforme sua Clínica em Negócio de Alta Performance" />
+  <meta name="description"
+    content="Transformamos clínicas médicas em negócios lucrativos. Metodologia comprovada: 300+ clínicas transformadas, 2x aumento médio de faturamento. Diagnóstico gratuito!" />
+  <meta name="keywords"
+    content="consultoria para clínicas, marketing médico, gestão de clínicas, transformação de consultórios, estratégias para profissionais da saúde, aumento de faturamento médico, organização de clínicas" />
+  <meta name="author" content="DevCraft - Soluções em Tecnologia" />
+  <meta name="developer" content="DevCraft - Soluções em Tecnologia" />
+  <meta name="generator" content="DevCraft - Desenvolvimento Web" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Portuguese" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seu-dominio-portfolio.com.br/" />
+  <meta property="og:title" content="Storm Consultoria | Transforme sua Clínica em Negócio de Alta Performance" />
+  <meta property="og:description"
+    content="Transformamos clínicas médicas em negócios lucrativos. Metodologia comprovada: 300+ clínicas transformadas, 2x aumento médio de faturamento. Diagnóstico gratuito!" />
+  <meta property="og:image" content="https://seu-dominio-portfolio.com.br/img/Logo%20Storm%20Business%20blue.png" />
+  <meta property="og:site_name" content="Storm Consultoria" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://seu-dominio-portfolio.com.br/" />
+  <meta property="twitter:title" content="Storm Consultoria | Transforme sua Clínica em Negócio de Alta Performance" />
+  <meta property="twitter:description"
+    content="Transformamos clínicas médicas em negócios lucrativos. Metodologia comprovada: 300+ clínicas transformadas, 2x aumento médio de faturamento. Diagnóstico gratuito!" />
+  <meta property="twitter:image" content="https://seu-dominio-portfolio.com.br/img/Logo%20Storm%20Business%20blue.png" />
+
+  <!-- Favicon -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./img/Logo-Storm-New.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="./img/Logo-Storm-Navbar.png" media="(prefers-color-scheme: dark)" />
+  <link rel="shortcut icon" type="image/png" href="./img/Logo-Storm-Navbar.png" />
+  <link rel="icon" type="image/x-icon" href="./img/Logo-Storm-Navbar.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/Logo-Storm-Navbar.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/Logo-Storm-Navbar.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/Logo-Storm-Navbar.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Storm Consultoria",
+      "url": "https://seu-dominio-portfolio.com.br",
+      "logo": "https://seu-dominio-portfolio.com.br/img/Logo%20Storm%20Business%20blue.png",
+      "description": "Consultoria especializada em transformar clínicas médicas em negócios de alta performance",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR",
+        "addressRegion": "São Paulo"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-99999-9999",
+        "contactType": "customer service",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": [
+        "https://www.instagram.com/stormconsultoria",
+        "https://www.linkedin.com/company/storm-consultoria"
+      ],
+      "service": {
+        "@type": "Service",
+        "name": "Consultoria para Clínicas Médicas",
+        "description": "Transformação de clínicas médicas em negócios de alta performance através de estratégias comerciais inteligentes",
+        "provider": {
+          "@type": "Organization",
+          "name": "Storm Consultoria"
+        }
+      }
+    }
+    </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_title: 'Storm Consultoria - Transforme sua Clínica',
+      page_location: window.location.href,
+      custom_map: {
+        'custom_parameter_1': 'clinic_type'
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="./src/main.tsx"></script>
+</body>
+
+</html>
